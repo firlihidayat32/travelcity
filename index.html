@@ -1,96 +1,88 @@
-<HTML>
-<HEAD>
-<TITLE>TRAVEL--FIRLI</TITLE>
-</HEAD>
-<BODY>
-<body background = "travel.jpg" width="50" height="10"> 
-<SCRIPT language="JavaScript">
-<!--
-function hitungtotal()
-{
-var nama = (document.fform.inama.value);
-var tujuan = (document.fform.itujuan.value);
-var jumlahtiket = parseFloat(document.fform.ijumlah.value);
-var ht = 0.0;
-var sub = 0.0;
-var diskon =0.0;
-var total =0.0;
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		.container{
+			width:650px;
+			margin: auto;
+			border: 1px dotted #blue;
+			padding: 10px;
+			background: grey;
+			color:#fff;
+		}
 
-if (tujuan=="Jakarta")
-{
-ht =100000;
-}
-if (tujuan=="Padang")
-{
-ht =500000;
-}
-if (tujuan=="Medan")
-{
-ht =75000;
-}
-if (tujuan=="Bengkulu")
-{
-ht =250000;
-}
-else if (tujuan=="Cirebon")
-{
-ht =150000;
-}
-else 
-{
-ht =200000;
-}
-sub = jumlahtiket*ht;
+		h2{
+			text-align: center;
+			text-decoration: underline;
 
-if (document.fform.imember.checked==true)
-{
-diskon =0.10*sub;
-}
-else
-{
-diskon=0.0; 
-}
 
-total = sub-diskon; 
-document.fform.otiket.value=eval(ht);
-document.fform.osub.value=eval(sub);
-document.fform.odiskon.value=eval(diskon);
-document.fform.ototal.value=eval(total); 
-// gunakan untuk mengecek !!! alert (total);
-}
-//--></SCRIPT>
-<FORM NAME ="fform">
-<table border="1" align="center"width="70%">
-<tr>
-<td width="100%" colspan="2"><H2 ALIGN="center">Travel Lubeg City</H2></td>
-</tr>
-<tr>
-<td width="50%"><PRE>
-Nama :<input type="text" size="20" name="inama">
-Tujuan :<select name="itujuan" size=1>
-<option value="Jakarta">Jakarta</option>
-<option value="Cirebon">Cirebon</option>
-<option value="Tasikmalaya">Tasikmalaya</option>
-<option value="Padang">Padang</option>
-<option value="Medan">Medan</option>
-<option value="Bengkulu">Bengkulu</option>
-</select> 
-Jumlah Tiket :<input type="text" size="11" name="ijumlah">
-Member :<input type="checkbox" name="imember">Ya</td></pre>
-<td width="50%"><pre>
-Harga Tiket :<input type="text" size="10" name="otiket">
-Sub Total :<input type="text" size="10" name="osub">
-Diskon :<input type="text" size="10" name="odiskon">
-Total Bayar :<input type="text" size="10" name="ototal"></td><pre>
-</tr>
-<tr>
-<td width="100%" colspan="2">
-<center>
-<INPUT TYPE="button" value="Hitung" onclick="hitungtotal()">
-<INPUT TYPE="reset" value="Ulang"> 
-</center></td>
-</tr>
-</table>
-</FORM> 
-</BODY>
-</HTML>
+		}
+
+		table{
+			background: DeepPink;
+			margin:auto;
+
+		}
+
+		td{
+			padding: 10px
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Form Pemesanan buku</h2>
+		<table border="1">
+			<tr>
+				<th>No </th>
+				<th>Judul buku</th>
+				<th>harga</th>
+				<th>jumlah</th>
+			</tr>
+
+			<tr>
+				<th>1</th>
+				<th>algoritma dan pemprograman</th>
+				<th>@<input type="text" name="harga" id="algoritma" size="7" value="75000" readonly></th>
+				<th>@<input type="number" name="jumlah_algoritma" id="harga_algoritma" size="7" value="0" onchange="total()"></th>
+			</tr>
+
+			<tr>
+				<th>2</th>
+				<th>algoritma dan pemprograman</th>
+				<th>@<input type="text" name="harga" id="javascript" size="7" value="46000" readonly></th>
+				<th>@<input type="number" name="jumlah_javascript" id="harga_javascript" size="7" value="0" onchange="total()"></th>
+			</tr>
+
+			<tr>
+				<th>3</th>
+				<th>PHP</th>
+				<th>@<input type="text" name="harga" id="php" size="7" value="90000" readonly></th>
+				<th>@<input type="number" name="jumlah_php" id="harga_php" size="7" value="0" onchange="total()"></th>
+			</tr>
+
+			<tr>
+				
+				<th colspan="3" style="text-align:right">jumlah total</th>
+				<th>@<input type="text" name="total_jumlah" id="total" size="7" value="" readonly></th>
+			</tr>
+		</table>
+		<br><br>
+		<input type="button" onclick="window.print()" value="cetak">
+
+		<script type="text/javascript">
+		function total() {
+		var valgoritma = 75000 * parseInt(document.getElementById('harga_algoritma').value);
+		var vjavascript = 45000 * parseInt(document.getElementById('harga_javascript').value);
+		var vphp = 90000 * parseInt(document.getElementById('harga_php').value);
+
+		var jumlah_harga = valgoritma + vjavascript + vphp;
+
+		document.getElementById('total').value = jumlah_harga;
+		}
+		
+		</script>
+	</div>
+</body>
+</html>
