@@ -1,19 +1,79 @@
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Perhitungan Diskon Javascript</title>
-</head>
-<body>
-<body background = "baju.jpg" width="150" height="100"> 
-	<script>
-		function diskon(hargaAwal){
-			var diskon;
-			diskon = 0.3 * hargaAwal;
-			hargaDiskon = hargaAwal - diskon;
-			return hargaDiskon;
-		}
-		var harga = prompt("Masukan Harga : Rp. ");
-		document.write("Harga Setelah diskon 15% Menjadi : Rp. " + diskon(harga));
-	</script>
-</body>
-</html>
+
+
+<!--Hasil Input Muncul-->
+
+
+
+
+
+<h3 align="center">Form Pendaftaran</h3>
+<table align="center" border="1">
+	<tr>
+		
+		<td>
+		<form>
+					<table>
+					<tr>
+							<td>Nilai</td>
+							<td>:</td>
+							<td><input type="text" id="myText" name="inputText"/></td>
+							
+					</tr>
+
+				
+
+					</table>
+					
+
+							<input type="button" onclick="check(this.form)" value="Submit"/>
+
+		</form>
+		</td>
+
+	</tr>
+</table>
+
+<h3 align="center">Hasil Data Yang Dikirim</h3>
+<table align="center" border="1">
+	<tr>
+		
+		<td>
+					<table>
+					<tr>
+							<td>Nilai</td>
+							<td>:</td>
+							<td><div id="teksDiv" class="beriJarak">Hasil dalam div disini</div></td>
+							
+					</tr>
+
+				
+
+				
+					</table>
+		</td>
+
+	</tr>
+</table>
+
+<script>
+function check(form)
+{
+ if(form.inputText.value == "")
+  {
+     alert("Silahkan tulis sesuatu untuk mencoba hasil")
+  }
+
+ else
+ {
+    var y = document.getElementById("myText").value;
+
+    document.getElementById("teksDiv").innerHTML = y;
+    
+
+      
+ 
+	
+	 alert("Nilai Berhasil Dikirim...");
+  }
+}
+</script>
